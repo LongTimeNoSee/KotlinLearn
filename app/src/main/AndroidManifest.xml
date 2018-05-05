@@ -1,2 +1,26 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="tv.rings.kotlinloops.app" />
+    xmlns:tools="http://schemas.android.com/tools"
+    package="tv.rings.kotlinloops.app">
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <application
+        android:name="tv.rings.PlayerApp"
+        android:allowBackup="true"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="XXOO"
+        android:theme="@style/AppTheme"
+        tools:replace="android:label">
+
+        <activity android:name="tv.rings.dashboard.DashboardActivity"
+            android:label="@string/app_name"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+    </application>
+</manifest>
