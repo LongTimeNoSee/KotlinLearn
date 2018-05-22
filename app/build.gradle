@@ -1,6 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -24,7 +25,12 @@ android {
 dependencies {
     implementation project(':feature')
     implementation project(':base')
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    kapt DaggerDeps.processer
+    kapt DaggerDeps.compiler
+    kapt ArchComponents.room_compiler
+    kapt ArchComponents.life_cycle_compiler
+    implementation KotlinDeps.kotlin_reflection
 }
 repositories {
     mavenCentral()

@@ -9,7 +9,7 @@ import android.view.ViewGroup
 abstract class BaseFragment : Fragment() {
     abstract fun getLayoutId() : Int
 
-    override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         if (getLayoutId() == 0) {
             throw RuntimeException("Invalid Layout ID")
         }
