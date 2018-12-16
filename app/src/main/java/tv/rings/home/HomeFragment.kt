@@ -1,8 +1,16 @@
 package tv.rings.home
 
 import android.os.Bundle
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
+import android.view.View
+import android.widget.Toast
+import kotlinx.android.synthetic.main.fragment_home.*
 import tv.rings.BaseFragment
+import tv.rings.adapter.MovieListAdapter
 import tv.rings.kotlinloops.app.R
+import tv.rings.model.Movie
 
 class HomeFragment : BaseFragment() {
 
@@ -20,5 +28,24 @@ class HomeFragment : BaseFragment() {
         retainInstance = true
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        initView()
+    }
 
+    fun initView() {
+        var list: List<Movie> = listOf(
+                Movie("https://www.movieartarena.com/imgs/bladerunner2049ff.jpg", "Black " +
+                        "runner", "This is a very good movie"),
+                Movie("https://imgc.allpostersimages.com/img/print/posters/teen-wolf-official-movie-poster-print_a-G-8848874-0.jpg"
+                , "J-fox", "A very rubbish movie"),
+                Movie("https://www.movieartarena.com/imgs/bladerunner2049ff.jpg", "Black " +
+                "runner", "This is a very good movie"),
+                Movie("https://imgc.allpostersimages.com/img/print/posters/teen-wolf-official-movie-poster-print_a-G-8848874-0.jpg"
+                        , "J-fox", "A very rubbish movie")
+        )
+
+        rvMovies.layoutManager = LinearLayoutManager(activity)
+        rvMovies.adapter = MovieListAdapter(list, R.layout.row_home_feed)
+    }
 }
