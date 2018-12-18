@@ -9,8 +9,10 @@ import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_home.*
 import tv.rings.BaseFragment
 import tv.rings.adapter.MovieListAdapter
+import tv.rings.data.Movie
 import tv.rings.kotlinloops.app.R
-import tv.rings.model.Movie
+import tv.rings.kotlinloops.app.R.id.rvMovies
+import tv.rings.toast
 
 class HomeFragment : BaseFragment() {
 
@@ -33,6 +35,7 @@ class HomeFragment : BaseFragment() {
         initView()
     }
 
+
     fun initView() {
         var list: List<Movie> = listOf(
                 Movie("https://www.movieartarena.com/imgs/bladerunner2049ff.jpg", "Black " +
@@ -46,6 +49,9 @@ class HomeFragment : BaseFragment() {
         )
 
         rvMovies.layoutManager = LinearLayoutManager(activity)
-        rvMovies.adapter = MovieListAdapter(list, R.layout.row_home_feed)
+        rvMovies.adapter = MovieListAdapter(list, R.layout.row_home_feed) {
+            toast("This is a movie:" + it.title)
+        }
+
     }
 }

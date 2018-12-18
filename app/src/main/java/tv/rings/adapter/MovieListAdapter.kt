@@ -1,16 +1,16 @@
 package tv.rings.adapter
 
-import android.support.constraint.ConstraintLayout
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import tv.rings.data.Movie
 import tv.rings.kotlinloops.app.R
-import tv.rings.model.Movie
+import kotlinx.android.synthetic.main.row_home_feed.*
 
-class MovieListAdapter(val items: List<Movie>, val itemView: Int):
+class MovieListAdapter(val items: List<Movie>, val itemView: Int, val itemClick: (Movie) -> Unit):
         RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent?.context)
@@ -24,6 +24,9 @@ class MovieListAdapter(val items: List<Movie>, val itemView: Int):
         holder?.imgPoster?.setImageResource(R.mipmap.wolf)
         holder?.titleView?.text= movie.title
         holder?.descriptionView?.text = movie.description
+        holder?.imgPoster?.setOnClickListener{
+            itemClick.invoke(movie)
+        }
     }
 
     class ViewHolder(rootView: View):
