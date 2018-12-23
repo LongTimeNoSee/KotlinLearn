@@ -6,10 +6,14 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import tv.rings.BaseFragment
 import tv.rings.adapter.MovieListAdapter
 import tv.rings.data.Movie
+import tv.rings.extensions.DelegatesExt
+import tv.rings.extensions.DelegatesExt.preference
 import tv.rings.kotlinloops.app.R
 import tv.rings.toast
 
 class HomeFragment : BaseFragment() {
+
+    private val index: Long by preference(activity!!, "index", 0)
 
     companion object {
         val TAG = HomeFragment::class.java.simpleName
