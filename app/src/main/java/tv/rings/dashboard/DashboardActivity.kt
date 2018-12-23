@@ -3,6 +3,7 @@ package tv.rings.dashboard
 import android.os.Bundle
 import android.support.constraint.ConstraintLayout
 import android.support.design.widget.BottomNavigationView
+import android.support.v4.view.ViewCompat.animate
 import android.view.Menu
 import android.view.View
 import kotlinx.android.synthetic.main.activity_dashboard.*
@@ -42,6 +43,7 @@ class DashboardActivity : BaseActivity(), GuestureEvents {
         loadFragment{
             replace(R.id.frmHomeContainer, HomeFragment.newInstance(), HomeFragment.TAG)
         }
+
     }
 
     private val onItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener {

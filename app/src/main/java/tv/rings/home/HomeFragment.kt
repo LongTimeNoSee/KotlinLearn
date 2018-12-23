@@ -2,16 +2,11 @@ package tv.rings.home
 
 import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.LayoutInflater
-import android.view.View
-import android.widget.Toast
 import kotlinx.android.synthetic.main.fragment_home.*
 import tv.rings.BaseFragment
 import tv.rings.adapter.MovieListAdapter
 import tv.rings.data.Movie
 import tv.rings.kotlinloops.app.R
-import tv.rings.kotlinloops.app.R.id.rvMovies
 import tv.rings.toast
 
 class HomeFragment : BaseFragment() {
@@ -52,6 +47,7 @@ class HomeFragment : BaseFragment() {
         rvMovies.adapter = MovieListAdapter(list, R.layout.row_home_feed) {
             toast("This is a movie:" + it.title)
         }
+
 
     }
 }
