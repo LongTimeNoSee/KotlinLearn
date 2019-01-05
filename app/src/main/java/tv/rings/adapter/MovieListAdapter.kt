@@ -10,8 +10,14 @@ import tv.rings.data.Movie
 import tv.rings.kotlinloops.app.R
 import kotlinx.android.synthetic.main.row_home_feed.*
 
-class MovieListAdapter(val items: List<Movie>, val itemView: Int, val itemClick: (Movie) -> Unit):
+class MovieListAdapter(var items: List<Movie>, val itemView: Int, val itemClick: (Movie) -> Unit):
         RecyclerView.Adapter<MovieListAdapter.ViewHolder>() {
+
+    fun setData(list: List<Movie>) {
+        items = list
+        notifyDataSetChanged()
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent?.context)
                 .inflate(itemView, parent, false))
