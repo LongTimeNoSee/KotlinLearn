@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.support.v7.widget.LinearLayoutManager
 import kotlinx.android.synthetic.main.fragment_home.*
 import tv.rings.BaseFragment
+import tv.rings.PlayerApp
 import tv.rings.adapter.MovieListAdapter
 import tv.rings.data.Movie
 import tv.rings.extensions.DelegatesExt
@@ -13,7 +14,7 @@ import tv.rings.toast
 
 class HomeFragment : BaseFragment() {
 
-    private val index: Long by preference(activity!!, "index", 0)
+    private val index: Long by preference(PlayerApp.instance(), "index", 0)
 
     companion object {
         val TAG = HomeFragment::class.java.simpleName
@@ -51,7 +52,6 @@ class HomeFragment : BaseFragment() {
         rvMovies.adapter = MovieListAdapter(list, R.layout.row_home_feed) {
             toast("This is a movie:" + it.title)
         }
-
 
     }
 }
