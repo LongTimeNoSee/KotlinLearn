@@ -7,7 +7,7 @@
         android:name="tv.rings.PlayerApp"
         android:allowBackup="true"
         android:roundIcon="@mipmap/ic_launcher_round"
-        android:label="XXOO"
+        android:label="Youtube"
         android:theme="@style/AppTheme"
         tools:replace="android:label">
 
